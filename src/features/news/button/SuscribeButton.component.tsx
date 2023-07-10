@@ -1,8 +1,8 @@
-import { FC } from "react";
-import { useAppDispatch, useAppSelector } from "../../../app/hooks";
-import { addPremiumSubscription } from "../newsSlices";
-import { INews } from "../types";
-import { ButtonSuscribe } from "./styled";
+import { FC } from 'react';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { addPremiumSubscription } from '../newsSlices';
+import { INews } from '../types';
+import { ButtonSuscribe } from './styled';
 
 const SuscribeButton: FC<{ news: INews }> = ({ news }) => {
   const dispatch = useAppDispatch();
@@ -11,14 +11,14 @@ const SuscribeButton: FC<{ news: INews }> = ({ news }) => {
   const onClickSubscribe = () => {
     dispatch(addPremiumSubscription(news.id));
     setTimeout(() => {
-      alert("Suscripto!");
+      alert('Suscripto!');
     }, 1000);
   };
 
   return (
     <>
-      {!premiumIdList.some((id) => id === news.id) && (
-        <ButtonSuscribe aria-label="suscribe-button" onClick={onClickSubscribe}>
+      {premiumIdList.some((id) => id === news.id) && (
+        <ButtonSuscribe aria-label='suscribe-button' onClick={onClickSubscribe}>
           Suscríbete
         </ButtonSuscribe>
       )}

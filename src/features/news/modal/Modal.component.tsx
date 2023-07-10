@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { useAppSelector } from "../../../app/hooks";
-import SuscribeButton from "../button/SuscribeButton.component";
-import { INews } from "../types";
+import { FC } from 'react';
+import { useAppSelector } from '../../../app/hooks';
+import SuscribeButton from '../button/SuscribeButton.component';
+import { INews } from '../types';
 import {
   Card,
   Container,
@@ -10,8 +10,8 @@ import {
   Image,
   Title,
   CloseButton,
-} from "./styled";
-import { SuscribeImage, CloseButton as Close } from "../../../assets";
+} from './styled';
+import { SuscribeImage, CloseButton as Close } from '../../../assets';
 
 interface IProps {
   news: INews;
@@ -20,25 +20,25 @@ interface IProps {
 
 const Modal: FC<IProps> = ({ news, toggle }) => {
   const modalData = {
-    title: "Suscríbete a nuestro Newsletter",
+    title: 'Suscríbete a nuestro Newsletter',
     image: SuscribeImage,
     description:
-      "Suscríbete a nuestro newsletter y recibe noticias de nuestros characters favoritos.",
+      'Suscríbete a nuestro newsletter y recibe noticias de nuestros characters favoritos.',
   };
 
   const { premiumIdList } = useAppSelector((state) => state.news);
-  const isPremium = premiumIdList.some((id) => id === news.id);
+  const isPremium = !premiumIdList.some((id) => id === news.id);
 
   const src = isPremium ? news.image : modalData.image;
-  const alt = isPremium ? "news-image" : "mr-burns-excelent";
+  const alt = isPremium ? 'news-image' : 'mr-burns-excelent';
   const title = isPremium ? news.title : modalData.title;
   const description = isPremium ? news.description : modalData.description;
 
   return (
     <Container>
       <Card>
-        <CloseButton aria-label="close-modal" onClick={() => toggle()}>
-          <img src={Close} alt="close-button" />
+        <CloseButton aria-label='close-modal' onClick={() => toggle()}>
+          <img src={Close} alt='close-button' />
         </CloseButton>
         <Image src={src} alt={alt} />
         <ContainerText>

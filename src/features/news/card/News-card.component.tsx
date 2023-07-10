@@ -1,8 +1,8 @@
-import { FC } from "react";
-import useToggle from "../../../hooks/useToggle";
-import Modal from "../modal/Modal.component";
-import { INews } from "../types";
-import { toUpperCaseFirstLetterText } from "../utils";
+import { FC } from 'react';
+import useToggle from '../../../hooks/useToggle';
+import Modal from '../modal/Modal.component';
+import { INews } from '../types';
+import { toUpperCaseFirstLetterText } from '../utils';
 import {
   ButtonReadMore,
   Container,
@@ -10,7 +10,7 @@ import {
   Image,
   Time,
   Title,
-} from "./styled";
+} from './styled';
 
 interface IProps {
   news: INews;
@@ -25,10 +25,10 @@ const NewsCard: FC<IProps> = ({ news }) => {
     <>
       <Container>
         <Image src={news.image} />
-        <Title aria-label="modal-title">{title}</Title>
+        <Title aria-label='modal-title'>{title}</Title>
         <Time>Hace {news.date} minutos</Time>
-        <Description aria-label="description">{shortDescription}</Description>
-        <ButtonReadMore aria-label="read-more" onClick={() => toggle()}>
+        <Description aria-label='description'>{shortDescription}</Description>
+        <ButtonReadMore aria-label='read-more' onClick={() => toggle()}>
           Ver más
         </ButtonReadMore>
       </Container>
